@@ -2,8 +2,8 @@ build: main.go
 	mkdir bin
 	go build -o bin/html main.go
 
-run: bin/html
-	./bin/html
+run: main.go
+	go run main.go
 
 clean:
 	rm -rf index.html bin

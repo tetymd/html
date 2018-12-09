@@ -7,9 +7,9 @@ import (
 
 var template = "<html lang=\"ja\">\n</html>"
 
-func writingTemplate(f *os.File, template string) (err error) {
-    _, err = f.WriteString(template)
-    return err
+func writingTemplate(f *os.File, template string) (n int, err error) {
+    n, err = f.WriteString(template)
+    return n, err
 }
 
 func main() {
@@ -19,7 +19,7 @@ func main() {
         return
     }
 
-    err = writingTemplate(f, template)
+    _, err = writingTemplate(f, template)
     if err != nil {
         log.Println(err)
     }
